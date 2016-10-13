@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 20161006092314) do
 
   create_table "vacancies", force: :cascade do |t|
     t.string   "name"
+    t.datetime "validity"
+    t.integer  "price"
+    t.string   "contacts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

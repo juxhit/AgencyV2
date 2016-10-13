@@ -1,10 +1,22 @@
 <%= form_tag vacancies_path do %>
-  <div style="width:500px;padding:10px 0;">
+  <div style="padding:10px 0;">
     Название:
     <%= text_field_tag :name, "", style: "width:100%;" %>
   </div>
+  <div style="padding:10px 0;">
+    Доступна до:
+    <%= datetime_select :validity, Time.now, discard_type: true, style: "width:100%;" %>
+  </div>
+  <div style="padding:10px 0;">
+    Заработная плата в рублях:
+    <%= number_field_tag :price, "", style: "width:100%;" %>
+  </div>
+  <div style="padding:10px 0;">
+    Контактная информация:
+    <%= text_area_tag :contacts, "", style: "width:100%;resize:vertical;" %>
+  </div>
 
-  <div style="width:500px;padding:10px 0;">
+  <div style="padding:10px 0;">
     Скилы:
     <%#= f.select(:skills, options_for_select(Skill.all.map{|s| [s.name, s.id]}), {}, {multiple: true, class: "skills", style: "width:100%;"}) %>
     <%= select_tag :skills, options_from_collection_for_select(Skill.all, "name", "name"), class: "skills", multiple: true, style: "width:100%;" %>

@@ -1,0 +1,23 @@
+<h1><%= @vacancy.name %></h1>
+<div>
+  Создана:
+  <%= l @vacancy.created_at, format: :long %>
+</div>
+<div>
+  Доступна до:
+  <%= l @vacancy.validity, format: :long %>
+</div>
+<div>
+  Заработная плата в рублях:
+  <%= @vacancy.price %>
+</div>
+<div>
+  Контактная информация:
+  <%= @vacancy.contacts %>
+</div>
+<div>
+  Скилы:
+  <% @vacancy.skills.each do |skill| %>
+    <span style="padding:3px 4px; background:#ccc;border-radius:50%;"><%= skill.name %></span>
+  <% end %>
+</div>

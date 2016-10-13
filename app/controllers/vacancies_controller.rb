@@ -18,7 +18,7 @@ class VacanciesController < ApplicationController
   end
 
   def create
-    @vacancy = Vacancy.new(name: params[:name])
+    @vacancy = Vacancy.new(name: params[:name], price: params[:price], contacts: params[:contacts], validity: params[:validity] )
     if @vacancy.save
       @vacancy.add_skills(params[:skills]) unless params[:skills].nil?
 
@@ -29,9 +29,9 @@ class VacanciesController < ApplicationController
   def update
     @vacancy = Vacancy.find(params[:id])
 
-    if @vacancy.update(name: params[:name])
+    if @vacancy.update(name: params[:name], validity: params[:validity], price: params[:price], contacts: params[:contacts])
       @vacancy.add_skills(params[:skills]) unless params[:skills].nil?
-      
+
       redirect_to @vacancy
     end
   end
@@ -45,6 +45,6 @@ class VacanciesController < ApplicationController
 
   private
     def vacancy_params
-      params.require(:vacancy).permit(:name, {skill_ids: [:id, :name]})
+      params.require(:vacancy).permit(:name, :validity, :price, :contacts, {skill_ids: [:id, :name]})
     end
 end
