@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require select2
+//= require select2_locale_ru
 //= require turbolinks
 //= require_tree .
