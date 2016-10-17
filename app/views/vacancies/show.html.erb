@@ -1,23 +1,33 @@
 <h1><%= @vacancy.name %></h1>
 <div>
-  Создана:
-  <%= l @vacancy.created_at, format: :long %>
+  <div style="float:left;">
+    <%= link_to "Вакансии", vacancies_path, class: "btn btn-primary" %>
+  </div>
+  <div style="float:right;">
+    <%= link_to "Резюме", resumes_path, class: "btn btn-default" %>
+  </div>
 </div>
-<div>
-  Доступна до:
-  <%= l @vacancy.validity, format: :long %>
-</div>
-<div>
-  Заработная плата в рублях:
-  <%= @vacancy.price %>
-</div>
-<div>
-  Контактная информация:
-  <%= @vacancy.contacts %>
-</div>
-<div>
-  Скилы:
-  <% @vacancy.skills.each do |skill| %>
-    <span style="padding:3px 4px; background:#ccc;border-radius:50%;"><%= skill.name %></span>
-  <% end %>
+<div style="clear: both;padding-top: 20px;">
+  <div>
+    Создана:
+    <%= l @vacancy.created_at, format: :long %>
+  </div>
+  <div>
+    Доступна до:
+    <%= l @vacancy.validity, format: :long if @vacancy.validity %>
+  </div>
+  <div>
+    Заработная плата в рублях:
+    <%= @vacancy.price %>
+  </div>
+  <div>
+    Контактная информация:
+    <%= @vacancy.contacts %>
+  </div>
+  <div>
+    Скилы:
+    <% @vacancy.skills.each do |skill| %>
+      <span style="padding:3px 4px; background:#ccc;border-radius:50%;"><%= skill.name %></span>
+    <% end %>
+  </div>
 </div>
