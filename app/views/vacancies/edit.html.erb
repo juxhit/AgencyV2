@@ -1,7 +1,7 @@
-<h1>Новая вакансия</h1>
+<h1>Обновить вакансию</h1>
 <div>
   <div style="float:left;">
-    <%= link_to "Вакансия", vacancy_path(@vacancy), class: "btn btn-primary" %>
+    <%= link_to "Назад", vacancy_path(@vacancy), class: "btn btn-primary" %>
   </div>
   <div style="float:right;">
     <%= link_to "Вакансии", vacancies_path, class: "btn btn-default" %>
@@ -11,7 +11,7 @@
   <%= form_tag vacancies_path do %>
     <div style="padding:10px 0;">
       Название:
-      <%= text_field_tag "", @vacancy.name, style: "width:100%;" %>
+      <%= text_field_tag :name, @vacancy.name, style: "width:100%;" %>
     </div>
     <div style="padding:10px 0;">
       Доступна до:

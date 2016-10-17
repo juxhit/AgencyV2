@@ -19,19 +19,19 @@ ActiveRecord::Schema.define(version: 20161006092314) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "resumes_skills", id: false, force: :cascade do |t|
+    t.integer "resume_id"
+    t.integer "skill_id"
+  end
+
+  add_index "resumes_skills", ["resume_id"], name: "index_resumes_skills_on_resume_id"
+  add_index "resumes_skills", ["skill_id"], name: "index_resumes_skills_on_skill_id"
+
   create_table "skills", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "skills_resumes", id: false, force: :cascade do |t|
-    t.integer "resume_id"
-    t.integer "skill_id"
-  end
-
-  add_index "skills_resumes", ["resume_id"], name: "index_skills_resumes_on_resume_id"
-  add_index "skills_resumes", ["skill_id"], name: "index_skills_resumes_on_skill_id"
 
   create_table "skills_vacancies", id: false, force: :cascade do |t|
     t.integer "vacancy_id"

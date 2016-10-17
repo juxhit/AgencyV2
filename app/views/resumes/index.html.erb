@@ -1,0 +1,35 @@
+<h1>Резюме</h1>
+<div>
+  <div style="float:left;">
+    <%= link_to "Новое резюме", new_resume_path, class: "btn btn-primary" %>
+  </div>
+  <div style="float:right;">
+    <%= link_to "Вакансии", vacancies_path, class: "btn btn-default" %>
+  </div>
+</div>
+<div style="clear: both;padding-top: 20px;">
+  <table>
+    <tr>
+      <td>Название</td>
+      <!-- <td>Дата создания</td>
+      <td>Дата завершения</td>
+      <td>ЗП</td> -->
+    </tr>
+    <% @resumes.each do |resume| %>
+      <tr>
+        <td>
+          <%= link_to resume.name, resume %>
+        </td>
+        <!-- <td>
+          <%#= l resume.created_at, format: :short %>
+        </td>
+        <td>
+          <%#= l resume.validity, format: :short if resume.validity %>
+        </td>
+        <td>
+          <span><%#= resume.price %> руб.</span>
+        </td> -->
+      </tr>
+    <% end %>
+  </table>
+</div>

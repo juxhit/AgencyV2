@@ -1,0 +1,33 @@
+<h1><%= @resume.name %></h1>
+<div>
+  <div style="float:left;">
+    <%= link_to "Резюме", resumes_path, class: "btn btn-primary" %>
+  </div>
+  <div style="float:right;">
+    <%= link_to "Обновить", edit_resume_path(@resume), class: "btn btn-default" %>
+  </div>
+</div>
+<div style="clear: both;padding-top: 20px;">
+  <!-- <div>
+    Создана:
+    <%#= l @resume.created_at, format: :long %>
+  </div>
+  <div>
+    Доступна до:
+    <%#= l @resume.validity, format: :long if @resume.validity %>
+  </div>
+  <div>
+    Заработная плата в рублях:
+    <%#= @resume.price %>
+  </div>
+  <div>
+    Контактная информация:
+    <%#= @resume.contacts %>
+  </div> -->
+  <div>
+    Скилы:
+    <% @resume.skills.each do |skill| %>
+      <span class="skill_tag"><%= skill.name %></span>
+    <% end %>
+  </div>
+</div>

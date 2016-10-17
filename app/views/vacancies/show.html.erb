@@ -4,7 +4,7 @@
     <%= link_to "Вакансии", vacancies_path, class: "btn btn-primary" %>
   </div>
   <div style="float:right;">
-    <%= link_to "Резюме", resumes_path, class: "btn btn-default" %>
+    <%= link_to "Обновить", edit_vacancy_path(@vacancy), class: "btn btn-default" %>
   </div>
 </div>
 <div style="clear: both;padding-top: 20px;">
@@ -27,7 +27,7 @@
   <div>
     Скилы:
     <% @vacancy.skills.each do |skill| %>
-      <span style="padding:3px 4px; background:#ccc;border-radius:50%;"><%= skill.name %></span>
+      <span class="skill_tag"><%= skill.name %></span>
     <% end %>
   </div>
 </div>
