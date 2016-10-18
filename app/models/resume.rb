@@ -2,6 +2,8 @@ class Resume < ActiveRecord::Base
   has_and_belongs_to_many :skills
   accepts_nested_attributes_for :skills
 
+  validates :name, presence: true
+
   def add_skills(skills_list)
     for skill in skills_list
       if s = Skill.find_by(name: skill)
