@@ -8,24 +8,20 @@
   </div>
 </div>
 <div style="clear: both;padding-top: 20px;">
-  <!-- <div>
-    Создана:
-    <%#= l @resume.created_at, format: :long %>
+  <div>
+    Статус:
+    <%= @resume.status %>
   </div>
   <div>
-    Доступна до:
-    <%#= l @resume.validity, format: :long if @resume.validity %>
+    Телефон:
+    <%= @resume.phone %>
   </div>
   <div>
-    Заработная плата в рублях:
-    <%#= @resume.price %>
+    Электронная почта:
+    <%= @resume.email %>
   </div>
   <div>
-    Контактная информация:
-    <%#= @resume.contacts %>
-  </div> -->
-  <div>
-    Скилы:
+    Скилы: 
     <% @resume.skills.each do |skill| %>
       <span class="skill_tag"><%= skill.name %></span>
     <% end %>

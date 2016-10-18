@@ -18,7 +18,7 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @resume = Resume.new(name: params[:name])
+    @resume = Resume.new(name: params[:name], price: params[:price], phone: params[:phone], email: params[:email], status: params[:status])
     if @resume.save
       @resume.add_skills(params[:skills]) unless params[:skills].nil?
 
@@ -29,7 +29,7 @@ class ResumesController < ApplicationController
   def update
     @resume = Resume.find(params[:id])
 
-    if @resume.update(name: params[:name])
+    if @resume.update(name: params[:name], price: params[:price], phone: params[:phone], email: params[:email], status: params[:status])
       @resume.add_skills(params[:skills]) unless params[:skills].nil?
 
       redirect_to @resume

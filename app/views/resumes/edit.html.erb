@@ -10,21 +10,25 @@
 <div style="clear: both;padding-top: 20px;">
   <%= form_tag resumes_path do %>
     <div style="padding:10px 0;">
-      Название:
+      ФИО:
       <%= text_field_tag :name, @resume.name, style: "width:100%;" %>
     </div>
-    <!-- <div style="padding:10px 0;">
-      Доступна до:
-      <%#= datetime_select :validity, @resume.validity, style: "width:100%;" %>
+    <div style="padding:10px 0;">
+      Статус:
+      <%= select_tag :status, options_for_select(["Работаю", "Не работаю"], @resume.status), style: "width:100%;" %>
+    </div>
+    <div style="padding:10px 0;">
+      Телефон:
+      <%= number_field_tag :phone, @resume.phone, style: "width:100%;" %>
+    </div>
+    <div style="padding:10px 0;">
+      Электронная почта:
+      <%= text_field_tag :email, @resume.email, style: "width:100%;" %>
     </div>
     <div style="padding:10px 0;">
       Заработная плата в рублях:
-      <%#= number_field_tag :price, @resume.price, style: "width:100%;" %>
+      <%= number_field_tag :price, @resume.price, style: "width:100%;" %>
     </div>
-    <div style="padding:10px 0;">
-      Контактная информация:
-      <%#= text_area_tag :contacts, @resume.contacts, style: "width:100%;resize:vertical;" %>
-    </div> -->
 
     <div style="padding:10px 0;">
       Скилы:

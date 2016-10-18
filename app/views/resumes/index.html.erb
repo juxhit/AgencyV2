@@ -10,25 +10,29 @@
 <div style="clear: both;padding-top: 20px;">
   <table>
     <tr>
-      <td>Название</td>
-      <!-- <td>Дата создания</td>
-      <td>Дата завершения</td>
-      <td>ЗП</td> -->
+      <td>ФИО</td>
+      <td>Телефон</td>
+      <td>Электронная почта</td>
+      <td>Заработная плата</td>
+      <td>Статус</td>
     </tr>
     <% @resumes.each do |resume| %>
       <tr>
         <td>
           <%= link_to resume.name, resume %>
         </td>
-        <!-- <td>
-          <%#= l resume.created_at, format: :short %>
+        <td>
+          <%= resume.phone %>
         </td>
         <td>
-          <%#= l resume.validity, format: :short if resume.validity %>
+          <%= resume.email %>
         </td>
         <td>
-          <span><%#= resume.price %> руб.</span>
-        </td> -->
+          <span><%= resume.price %> руб.</span>
+        </td>
+        <td>
+          <%= resume.status %>
+        </td>
       </tr>
     <% end %>
   </table>
